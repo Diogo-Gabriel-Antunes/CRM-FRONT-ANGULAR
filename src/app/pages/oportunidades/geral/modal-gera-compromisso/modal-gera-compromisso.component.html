@@ -1,0 +1,31 @@
+<div class="border border-gray-400 p-3 rounded">
+  <div>
+    <span mat-dialog-title>Gera Compromisso</span>
+  </div>
+  <mat-divider></mat-divider>
+  <div mat-dialog-content>
+    <app-compromisso-form
+      tipoIntegracao="COMPROMISSO"
+      (emitindoCompromisso)="setCompromisso($event)"
+    ></app-compromisso-form>
+  </div>
+  <mat-dialog-actions>
+    <div class="flex gap-6 my-3">
+      <button
+        mat-button
+        [mat-dialog-close]="true"
+        class="bg-green-400 px-4 py-2 rounded text-white"
+        (click)="geraCompromisso()"
+      >
+        Criar Compromisso
+      </button>
+      <button
+        mat-button
+        mat-dialog-close
+        class="border border-gray-500 px-4 py-2 rounded hover:bg-gray-300"
+      >
+        Fechar
+      </button>
+    </div>
+  </mat-dialog-actions>
+</div>

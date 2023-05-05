@@ -1,0 +1,49 @@
+<div class="flex gap-6">
+  <div class="flex flex-col w-full">
+    <div class="w-32">
+      <app-label label="Horario Compromisso"></app-label>
+      <app-select
+        [options]="horariosOptions"
+        [value]="horarioSelected"
+        (valueChange)="setHorarioSelected($event)"
+        [disabled]="getDisabled()"
+      ></app-select>
+    </div>
+    <div class="my-5 w-32">
+      <app-label label="Mes"></app-label>
+      <app-select
+        [options]="mesOptions"
+        [value]="mesSelected"
+        (valueChange)="setMesSelected($event)"
+        [disabled]="getDisabled()"
+      ></app-select>
+    </div>
+    <div class="w-32">
+      <app-label label="Dia"></app-label>
+      <app-select
+        [options]="diaDoMes"
+        [value]="diaSelected"
+        (valueChange)="setDiaSelected($event)"
+        [disabled]="getDisabled()"
+      ></app-select>
+    </div>
+  </div>
+  <div class="flex flex-col">
+    <div>
+      <app-label label="Fim do compromisso"> </app-label>
+      <app-input-date-hours
+        [value]="fimDoCompromisso"
+        (valueChange)="setFimDoCompromisso($event)"
+        [disabled]="getDisabled()"
+      ></app-input-date-hours>
+    </div>
+    <div class="my-5">
+      <app-label label="Inicio Compromisso"></app-label>
+      <app-input-date-hours
+        [value]="inicioDoCompromisso"
+        (valueChange)="setInicioDoCompromisso($event)"
+        [disabled]="getDisabled()"
+      ></app-input-date-hours>
+    </div>
+  </div>
+</div>

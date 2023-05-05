@@ -1,0 +1,30 @@
+<h2 mat-dialog-title>Ações Cliente</h2>
+<mat-dialog-content class="block">
+  <mat-tab-group mat-stretch-tabs>
+    <mat-tab label="Oportunidade">
+      <app-oportunidades-form-modal
+        [clientUuid]="clienteUuid"
+      ></app-oportunidades-form-modal
+    ></mat-tab>
+    <mat-tab label="Tarefa"
+      ><app-tarefa-form-modal
+        [clientUuid]="clienteUuid"
+      ></app-tarefa-form-modal>
+    </mat-tab>
+    <mat-tab label="Proposta">
+      <app-proposta-form-modal
+        [clientUuid]="clienteUuid"
+      ></app-proposta-form-modal>
+    </mat-tab>
+  </mat-tab-group>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button
+    mat-button
+    mat-dialog-close
+    class="py-2 px-4 rounded bg-blue-300 text-white"
+  >
+    Fechar
+  </button>
+  <!-- <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button> -->
+</mat-dialog-actions>

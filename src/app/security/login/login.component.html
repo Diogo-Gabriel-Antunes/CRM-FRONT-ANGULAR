@@ -1,0 +1,52 @@
+<div>
+  <div class="absolute top-0 w-full text-center bg-gray-300 text-gray-700">
+    <strong>
+      <h2 class="pt-2">
+        Mais agilidade com seus leads e gerenciamento das suas campanhas
+      </h2></strong
+    >
+  </div>
+  <div class="flex">
+    <div class="mx-auto my-52">
+      <div class="border border-gray-400 border-spacing-1 p-16 rounded-2xl">
+        <div>
+          <form [formGroup]="formulario" class="flex flex-col">
+            <h2 class="mb-12">Faça seu login no CRM Dickael</h2>
+            <mat-form-field>
+              <mat-label>E-mail</mat-label>
+              <input
+                matInput
+                placeholder="E-mail"
+                formControlName="email"
+                type="email"
+              />
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Senha</mat-label>
+              <input
+                matInput
+                placeholder="Senha"
+                formControlName="senha"
+                type="password"
+              />
+            </mat-form-field>
+            <div>
+              <button
+                mat-raised-button
+                color="primary"
+                class="w-full"
+                (click)="login()"
+              >
+                Entrar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="absolute bottom-0 w-full text-center bg-gray-300 text-gray-700">
+    <strong> <p class="pt-2">Dev by:Diogo</p></strong>
+  </div>
+</div>

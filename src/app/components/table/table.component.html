@@ -1,0 +1,32 @@
+<div class="w-table max-w-table p-10 overflow-y-auto max-h-table rounded">
+  <table mat-table [dataSource]="data" class="w-full">
+    <!-- Position Column -->
+
+    <ng-container
+      [matColumnDef]="options.label"
+      *ngFor="let options of tableOptions.labelOptions"
+      class="w-full"
+    >
+      <th mat-header-cell *matHeaderCellDef class="text-center">
+        {{ options.label }}
+      </th>
+      <td mat-cell *matCellDef="let element" [ngClass]="ngClassBg(element)">
+        <div (click)="select(element.uuid)" *ngIf="!options.type">
+          {{ element[options.objectName] }}
+        </div>
+        <div (click)="select(element.uuid)" *ngIf="options.type === 'date'">
+          {{ formataDataPadraoBr(element[options.objectName]) }}
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <mat-paginator
+    [length]="tableOptions.optionsTable.length"
+    [pageSize]="tableOptions.optionsTable.pageSize"
+    (page)="pageOptions($event)"
+  >
+  </mat-paginator>
+</div>

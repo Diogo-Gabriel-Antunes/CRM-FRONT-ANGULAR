@@ -1,0 +1,50 @@
+<div class="grid grid-cols-2">
+  <div class="flex items-center p-2">
+    <div class="flex flex-col">
+      <div>
+        <h3>
+          {{ calendarioHorario.compromisso.oportunidades.cliente?.nome }}
+        </h3>
+      </div>
+      <div>
+        <p class="comprimisso-paragrafo">
+          {{
+            calendarioHorario.compromisso.oportunidades.cliente?.contato
+              ?.telefone
+          }}
+          -
+          {{
+            calendarioHorario.compromisso.oportunidades.cliente?.contato
+              ?.telefone2
+          }}
+        </p>
+      </div>
+      <div>
+        <p class="comprimisso-paragrafo">
+          {{
+            calendarioHorario.compromisso.oportunidades.cliente?.contato?.email
+          }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="flex items-center p-2">
+      <div class="flex flex-col">
+        <div>
+          <p>Oportunidade</p>
+        </div>
+        <div>
+          <p>
+            {{ calendarioHorario.compromisso.inicioCompromisso }}
+          </p>
+        </div>
+        <div>
+          <p>
+            {{ calendarioHorario.compromisso.fimCompromisso }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

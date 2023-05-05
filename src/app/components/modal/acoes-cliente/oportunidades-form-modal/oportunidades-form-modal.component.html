@@ -1,0 +1,88 @@
+<div class="flex items-center p-5 w-full">
+  <div class="grid grid-cols-4 gap-6 w-full">
+    <div class="flex flex-col">
+      <div class="w-full">
+        <app-label label="Nome Da Oportunidade"></app-label>
+        <app-input
+          [value]="nomeOportunidade"
+          (valueChange)="setNomeOportunidade($event)"
+        ></app-input>
+      </div>
+      <div class="w-full my-5">
+        <app-label label="Campanha"></app-label>
+        <app-select
+          [options]="campanhas"
+          [value]="campanhaUuid"
+          (valueChange)="setCampanha($event)"
+        ></app-select>
+      </div>
+      <div class="w-full mb-5">
+        <app-label label="Fonte"></app-label>
+        <app-select
+          [options]="fontes"
+          [value]="fonteUuid"
+          (valueChange)="setFonteUuid($event)"
+        ></app-select>
+      </div>
+    </div>
+    <div class="flex flex-col items-center">
+      <div class="w-full">
+        <app-label label="Funil"></app-label>
+        <div class="w-full">
+          <select
+            class="w-full bg-white rounded border border-blue-100 px-2 py-1 text-sm focus:outline-none focus:border focus:border-blue-300 disabled:bg-gray-400"
+            [(ngModel)]="funilUuid"
+            (ngModelChange)="onChangeFunil(funilUuid)"
+          >
+            <option></option>
+            <option *ngFor="let option of funil" [value]="option.value">
+              {{ option.label }}
+            </option>
+          </select>
+        </div>
+        <div class="w-full my-5">
+          <app-label label="Etapa do funil"></app-label>
+          <div class="w-full">
+            <select
+              class="w-full bg-white rounded border border-blue-100 px-2 py-1 text-sm focus:outline-none focus:border focus:border-blue-300 disabled:bg-gray-400"
+              [disabled]="!funilUuid"
+              [(ngModel)]="etapaDoFunilUuid"
+            >
+              <option></option>
+              <option
+                *ngFor="let option of etapaDoFunil"
+                [value]="option.value"
+              >
+                {{ option.label }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="w-full mt-2">
+        <app-label label="Tipo de Integração"></app-label>
+        <app-select
+          [options]="tipoIntegracao"
+          [value]="tipoIntegracaoSelected"
+          (valueChange)="setTipoIntegracaoSelected($event)"
+        ></app-select>
+      </div>
+    </div>
+    <div class="w-full">
+      <app-compromisso-form
+        [tipoIntegracao]="tipoIntegracaoSelected"
+        (emitindoCompromisso)="setCompromisso($event)"
+      ></app-compromisso-form>
+    </div>
+  </div>
+</div>
+<div class="flex w-full">
+  <div class="flex mx-auto w-full">
+    <button
+      class="bg-green-400 rounded py-1 px-2 text-white w-1/3 mx-auto"
+      (click)="onSubmitOportundidade()"
+    >
+      Criar Oportunidade
+    </button>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div>
+  <div class="w-full bg-white"><app-filtros></app-filtros></div>
+  <div>
+    <div *ngIf="etapas" class="flex items-start gap-10 overflow-auto ml-20 mt-10 h-screen">
+        <div *ngFor="let etapa of etapas"  class="snap-center " >
+          <app-cabecalhos [etapaDoFunil]="etapa">
+            <div></div>
+          </app-cabecalhos>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+<div class="mt-10">
+  <div class="grid gap-6 grid-cols-4">
+    <div *ngFor="let cliente of clientes">
+      <mat-card class="w-96 h-96 shadow-xl">
+        <mat-card-header class="h-72 mb-5">
+          <mat-card-title class="w-full">{{ cliente.nome }}</mat-card-title>
+          <mat-card-subtitle class="w-full">{{
+            cliente.cargo
+          }}</mat-card-subtitle>
+          <mat-card-content>
+            <div *ngIf="cliente.minFaturamento || cliente.maxFaturamento">
+              <p>
+                Faturamento: {{ cliente.minFaturamento }} -
+                {{ cliente.maxFaturamento }}
+              </p>
+            </div>
+            <div *ngIf="cliente.empresa">
+              <br />
+              <p>Empresa:</p>
+            </div>
+            <div *ngIf="cliente.endereco?.cidade && cliente.endereco?.estado">
+              <br />
+              <p>
+                Cidade: {{ cliente?.endereco?.cidade }} -
+                {{ cliente?.endereco?.estado }}
+              </p>
+            </div>
+            <div *ngIf="cliente.contato?.telefone">
+              <br />
+              <p>Telefone: {{ cliente?.contato?.telefone }}</p>
+            </div>
+            <div *ngIf="cliente?.contato?.telefone2">
+              <br />
+              <p>Telefone: {{ cliente?.contato?.telefone }}</p>
+            </div>
+          </mat-card-content>
+        </mat-card-header>
+        <mat-card-actions>
+          <button
+            class="bg-blue-300 rounded text-white px-4 py-2"
+            (click)="openDialogEditar(cliente.uuid!)"
+          >
+            Editar
+          </button>
+          <button
+            (click)="openDialog(cliente.uuid!)"
+            class="bg-green-400 rounded text-white px-4 py-2 mx-3"
+          >
+            Ações
+          </button>
+          <button class="bg-red-400 rounded text-white px-4 py-2">
+            Excluir
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

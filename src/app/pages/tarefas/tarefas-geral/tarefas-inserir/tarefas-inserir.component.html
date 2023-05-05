@@ -1,0 +1,65 @@
+<div class="h-72">
+  <div>
+    <h3 class="text-center">Inserir Tarefa</h3>
+    <mat-divider></mat-divider>
+  </div>
+  <div class="mt-2">
+    <div class="my-auto">
+      <div class="grid grid-cols-4 w-full gap-4">
+        <div>
+          <div>
+            <app-label label="Tipo De Tarefa"></app-label>
+            <app-select
+              [options]="tipoDeTarefa"
+              (valueChange)="setTipoDaTarefa($event)"
+            ></app-select>
+          </div>
+          <div class="my-5">
+            <app-label label="Tipo de Integração"></app-label>
+            <app-select
+              [options]="tipoIntegracao"
+              [value]="tipoIntegracaoSelected"
+              (valueChange)="setTipoIntegracaoSelected($event)"
+            ></app-select>
+          </div>
+        </div>
+        <div>
+          <app-label label="Data Da Tarefa"></app-label>
+          <app-input-date-hours
+            [value]="horaDaTarefa"
+            (valueChange)="setHoraDaTarefa($event)"
+          ></app-input-date-hours>
+          <div class="my-5 w-full">
+            <app-modal-cliente
+              [clienteUuid]="clientUuid"
+              (valueChange)="setClienteUuid($event)"
+            ></app-modal-cliente>
+          </div>
+        </div>
+        <div>
+          <app-compromisso-form
+            [tipoIntegracao]="tipoIntegracaoSelected"
+            (emitindoCompromisso)="setCompromisso($event)"
+          ></app-compromisso-form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <mat-dialog-actions align="end" class="mt-4">
+    <button
+      mat-button
+      mat-dialog-close
+      class="border border-black rounded py-2 px-4 mr-4"
+    >
+      Fechar
+    </button>
+    <button
+      mat-button
+      cdkFocusInitial
+      class="bg-green-500 rounded text-white py-2 px-4"
+      (click)="createTarefa()"
+    >
+      Criar tarefa
+    </button>
+  </mat-dialog-actions>
+</div>

@@ -1,0 +1,59 @@
+<div>
+  <div class="container mx-auto">
+    <div class="mt-12 flex justify-between items-center">
+      <div class="flex w-16 items-center gap-6">
+        <button class="bg-blue-400 rounded px-2 py-1 flex items-center">
+          <p class="text-filtrar">Filtrar</p>
+          <div class="ml-2">
+            <mat-icon class="text-lg text-white"> filter_list </mat-icon>
+          </div>
+        </button>
+        <div>
+          <button class="bg-green-400 rounded px-4 py-2 text-white">
+            Inserir
+          </button>
+        </div>
+        <div>
+          <button class="bg-blue-400 rounded px-4 py-2 text-white">
+            Editar
+          </button>
+        </div>
+        <div>
+          <button
+            mat-button
+            [matMenuTriggerFor]="maisacoes"
+            class="bg-gray-500 rounded px-4 py-2 w-32 text-white"
+          >
+            Mais Ações
+          </button>
+          <mat-menu #maisacoes="matMenu">
+            <button mat-menu-item mat-button (click)="openDialogEtapas()">
+              Etapas
+            </button>
+            <button mat-menu-item mat-button (click)="openDialogEtapas()">
+              Definir como padrão
+            </button>
+            <button mat-menu-item mat-button (click)="openDialogIntegracoes()">
+              Integrações
+            </button>
+          </mat-menu>
+        </div>
+      </div>
+      <div>
+        <app-input
+          [value]="pesquisaRapida"
+          placeHolder="Pesquisa rapida por nome"
+          (valueChange)="setPesquisaRapida($event)"
+        ></app-input>
+      </div>
+    </div>
+    <div class="mt-10 border border-gray-400 rounded max-h-full">
+      <app-table
+        [tableOptions]="tableOptions"
+        [data]="data"
+        (paginationEvent)="setPaginationOptions($event)"
+        (selectEvent)="setFunilSelected($event)"
+      ></app-table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+<mat-toolbar color="primary">
+  <div class="flex w-full justify-between">
+    <div>
+      <span>CRM</span>
+      <span class="example-spacer"></span>
+    </div>
+    <div class="pl-48">
+      <button mat-button routerLink="agenda">Agenda</button>
+      <button mat-button routerLink="leads">Leads</button>
+
+      <button mat-button [matMenuTriggerFor]="cliente">Cliente</button>
+      <mat-menu #cliente="matMenu">
+        <button routerLink="cliente" mat-menu-item>Cadastro</button>
+        <button mat-menu-item>Perfil Vencedor</button>
+      </mat-menu>
+      <button mat-button [matMenuTriggerFor]="campanha">Metricas</button>
+      <mat-menu #campanha="matMenu">
+        <button mat-menu-item>Configurações</button>
+        <button mat-menu-item routerLink="campanha/geral">Campanhas</button>
+
+        <button mat-menu-item routerLink="funil/geral">Funil</button>
+        <button mat-menu-item>Relatorio</button>
+      </mat-menu>
+      <button mat-button [matMenuTriggerFor]="oportunidades">
+        Oportunidades
+      </button>
+      <mat-menu #oportunidades="matMenu">
+        <button mat-menu-item routerLink="oportunidades/geral">Geral</button>
+        <button mat-menu-item>Cadastro</button>
+        <button mat-menu-item>Relatorio</button>
+      </mat-menu>
+      <button mat-button [matMenuTriggerFor]="tarefas">Tarefas</button>
+      <mat-menu #tarefas="matMenu">
+        <button mat-menu-item routerLink="tarefas/geral">Geral</button>
+        <button mat-menu-item>Cadastro</button>
+        <button mat-menu-item>Relatorio</button>
+      </mat-menu>
+      <button mat-button [matMenuTriggerFor]="integracoes">Integrações</button>
+      <mat-menu #integracoes="matMenu">
+        <button mat-menu-item>Whats App</button>
+        <button mat-menu-item>Meet</button>
+      </mat-menu>
+      <button mat-button routerLink="configuracoes">Configurações</button>
+    </div>
+    <div class="flex flex-row">
+      <div class="mt-1 pr-3">
+        <input
+          type="text"
+          class="h-6 rounded text-sm border border-blue-700 px-2 py-1 focus:outl"
+          placeholder="Funcionalidade"
+          aria-label="Number"
+          [formControl]="myControl"
+          [matAutocomplete]="auto"
+        />
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option
+            *ngFor="let option of filteredOptions | async"
+            [value]="option"
+          >
+            {{ option }}
+          </mat-option>
+        </mat-autocomplete>
+      </div>
+      <button
+        mat-icon-button
+        class="material-symbols-outlined"
+        aria-label="Example icon-button with heart icon"
+        [matMenuTriggerFor]="usuario"
+      >
+        <mat-menu #usuario="matMenu">
+          <button mat-menu-item>Perfil</button>
+          <button mat-menu-item>Sair</button>
+        </mat-menu>
+        <mat-icon>account_circle</mat-icon>
+      </button>
+    </div>
+  </div>
+</mat-toolbar>

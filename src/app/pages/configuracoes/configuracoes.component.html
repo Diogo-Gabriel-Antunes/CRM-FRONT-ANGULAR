@@ -1,0 +1,76 @@
+<div class="w-full">
+  <div class="flex items-center mt-10">
+    <div
+      class="flex items-center m-auto justify-between w-2/3 border border-black rounded p-5 bg-white"
+    >
+      <div>
+        <button
+          class="bg-green-400 text-white rounded py-2 px-4"
+          (click)="onSubmit()"
+        >
+          Salvar
+        </button>
+      </div>
+      <div>
+        <h1 class="titulo">Configurações</h1>
+      </div>
+      <div></div>
+    </div>
+  </div>
+  <div class="flex w-full mt-10">
+    <div class="m-auto w-2/3 bg-white border border-black rounded p-10">
+      <div class="grid grid-cols-4">
+        <div class="flex flex-col items-center">
+          <app-label label="Horario De Trabalho"></app-label>
+          <div class="flex gap-10 mt-4">
+            <div>
+              <app-label label="Entrada"></app-label>
+              <app-input-hora
+                (valueChange)="setHoraEntrada($event)"
+                [value]="horaEntrada"
+                [disabled]="horarioPadrao"
+              ></app-input-hora>
+            </div>
+            <div>
+              <app-label label="Saida"></app-label>
+              <app-input-hora
+                (valueChange)="setHoraSaida($event)"
+                [value]="horaSaida"
+                [disabled]="horarioPadrao"
+              ></app-input-hora>
+            </div>
+          </div>
+          <div class="mt-5">
+            <section class="example-section">
+              <mat-checkbox
+                class="slide"
+                matTooltip="Das 8:00 as 18:00"
+                (change)="setHoraioPadrao($event)"
+                >Horario Padrão</mat-checkbox
+              >
+            </section>
+          </div>
+        </div>
+        <div class="flex items-center">
+          <div class="mt-6">
+            <app-label label="Dias da Semana"></app-label>
+            <mat-button-toggle-group
+              name="dias da semana"
+              aria-label="dias da semana"
+              (change)="setDiasDaSemana($event)"
+              multiple
+            >
+              <mat-button-toggle value="DOMINGO">Domingo</mat-button-toggle>
+              <mat-button-toggle value="SEGUNDA">Segunda</mat-button-toggle>
+              <mat-button-toggle value="TERCA">Terça</mat-button-toggle>
+              <mat-button-toggle value="QUARTA">Quarta</mat-button-toggle>
+              <mat-button-toggle value="QUINTA">Quinta</mat-button-toggle>
+              <mat-button-toggle value="SEXTA">Sexta</mat-button-toggle>
+              <mat-button-toggle value="SABADO">Sabado</mat-button-toggle>
+            </mat-button-toggle-group>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<h2 mat-dialog-title>Install Angular</h2>
+<mat-dialog-content class="mat-typography">
+  <div class="container mx-auto">
+    <div class="mt-12 flex justify-between items-center">
+      <div class="flex w-16 items-center gap-6">
+        <button class="bg-blue-400 rounded px-2 py-1 flex items-center">
+          <p class="text-filtrar">Filtrar</p>
+          <div class="ml-2">
+            <mat-icon class="text-lg text-white"> filter_list </mat-icon>
+          </div>
+        </button>
+      </div>
+      <div>
+        <app-input
+          [value]="pesquisaRapida"
+          placeHolder="Pesquisa rapida por nome"
+          (valueChange)="setPesquisaRapida($event)"
+        ></app-input>
+      </div>
+    </div>
+    <div class="mt-10 border border-gray-400 rounded max-h-full">
+      <app-table
+        [tableOptions]="tableOptions"
+        [data]="data"
+        (paginationEvent)="setPaginationOptions($event)"
+        (selectEvent)="setClienteSelected($event)"
+      ></app-table>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button
+    mat-button
+    class="border border-black rounded py-2 px-4"
+    mat-dialog-close
+  >
+    Cancel
+  </button>
+  <button
+    mat-button
+    [mat-dialog-close]
+    cdkFocusInitial
+    class="bg-green-400 rounded py-2 px-4 text-white ml-4"
+    (click)="fecha()"
+  >
+    Selecionar
+  </button>
+</mat-dialog-actions>

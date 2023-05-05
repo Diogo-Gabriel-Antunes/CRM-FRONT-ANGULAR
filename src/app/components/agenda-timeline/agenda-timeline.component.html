@@ -1,0 +1,633 @@
+<div *ngIf="calendario" class="">
+  <div class="bg-white border border-black rounded">
+    <div class="py-2 px-4 rounded flex gap-4 items-center justify-between">
+      <div class="flex items-center gap-4">
+        <div>
+          <app-label label="Filtro"></app-label>
+          <app-select
+            [options]="meses"
+            (valueChange)="setMes($event)"
+          ></app-select>
+        </div>
+
+        <button
+          (click)="getCalendario()"
+          class="mt-6 bg-green-400 flex rounded px-1 py-1"
+        >
+          <mat-icon class=""> refresh </mat-icon>
+        </button>
+      </div>
+      <div class="p-5 mr-32">
+        <h1 class="text-center calendario-title">
+          {{ calendario.mes }}
+        </h1>
+      </div>
+      <div></div>
+    </div>
+
+    <div class="grid grid-cols-5 gap-5 p-5 overflow-y-auto max-h-table">
+      <div>
+        <mat-accordion>
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title> Dia 1 ({{ getLength(dia1) }}) </mat-panel-title>
+              <mat-panel-description> </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div
+              *ngFor="let calendarioHorarios of dia1?.calendarioHorarios"
+              class="h-full"
+            >
+              <app-compromisso-card
+                [calendarioHorario]="calendarioHorarios"
+              ></app-compromisso-card>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+      <div>
+        <mat-accordion>
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title> Dia 2 ({{ getLength(dia2) }}) </mat-panel-title>
+              <mat-panel-description> </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div
+              *ngFor="let calendarioHorarios of dia2?.calendarioHorarios"
+              class="h-full"
+            >
+              <app-compromisso-card
+                [calendarioHorario]="calendarioHorarios"
+              ></app-compromisso-card>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+      <div>
+        <mat-accordion>
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title> Dia 3 ({{ getLength(dia3) }}) </mat-panel-title>
+              <mat-panel-description> </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div
+              *ngFor="let calendarioHorarios of dia3?.calendarioHorarios"
+              class="h-full"
+            >
+              <app-compromisso-card
+                [calendarioHorario]="calendarioHorarios"
+              ></app-compromisso-card>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+      <div>
+        <mat-accordion>
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title> Dia 4 ({{ getLength(dia4) }}) </mat-panel-title>
+              <mat-panel-description> </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div
+              *ngFor="let calendarioHorarios of dia4?.calendarioHorarios"
+              class="h-full"
+            >
+              <app-compromisso-card
+                [calendarioHorario]="calendarioHorarios"
+              ></app-compromisso-card>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+      <div>
+        <mat-accordion>
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title> Dia 5 ({{ getLength(dia5) }}) </mat-panel-title>
+              <mat-panel-description> </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div
+              *ngFor="let calendarioHorarios of dia5?.calendarioHorarios"
+              class="h-full"
+            >
+              <app-compromisso-card
+                [calendarioHorario]="calendarioHorarios"
+              ></app-compromisso-card>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+      <div>
+        <mat-accordion>
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title> Dia 6 ({{ getLength(dia6) }}) </mat-panel-title>
+              <mat-panel-description> </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div
+              *ngFor="let calendarioHorarios of dia6?.calendarioHorarios"
+              class="h-full"
+            >
+              <app-compromisso-card
+                [calendarioHorario]="calendarioHorarios"
+              ></app-compromisso-card>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+      <div>
+        <mat-accordion>
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title> Dia 7 ({{ getLength(dia7) }}) </mat-panel-title>
+              <mat-panel-description> </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div
+              *ngFor="let calendarioHorarios of dia7?.calendarioHorarios"
+              class="h-full"
+            >
+              <app-compromisso-card
+                [calendarioHorario]="calendarioHorarios"
+              ></app-compromisso-card>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+      <div>
+        <mat-accordion>
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title> Dia 8 ({{ getLength(dia8) }}) </mat-panel-title>
+              <mat-panel-description> </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div
+              *ngFor="let calendarioHorarios of dia8?.calendarioHorarios"
+              class="h-full"
+            >
+              <app-compromisso-card
+                [calendarioHorario]="calendarioHorarios"
+              ></app-compromisso-card>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+      <div>
+        <mat-accordion>
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title> Dia 9 ({{ getLength(dia9) }}) </mat-panel-title>
+              <mat-panel-description> </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div
+              *ngFor="let calendarioHorarios of dia9?.calendarioHorarios"
+              class="h-full"
+            >
+              <app-compromisso-card
+                [calendarioHorario]="calendarioHorarios"
+              ></app-compromisso-card>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+      <div>
+        <mat-accordion>
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Dia 10 ({{ getLength(dia10) }})
+              </mat-panel-title>
+              <mat-panel-description> </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div
+              *ngFor="let calendarioHorarios of dia10?.calendarioHorarios"
+              class="h-full"
+            >
+              <app-compromisso-card
+                [calendarioHorario]="calendarioHorarios"
+              ></app-compromisso-card>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+      <div>
+        <mat-accordion>
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Dia 11 ({{ getLength(dia11) }})
+              </mat-panel-title>
+              <mat-panel-description> </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div
+              *ngFor="let calendarioHorarios of dia11?.calendarioHorarios"
+              class="h-full"
+            >
+              <app-compromisso-card
+                [calendarioHorario]="calendarioHorarios"
+              ></app-compromisso-card>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+      <div>
+        <mat-accordion>
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Dia 12 ({{ getLength(dia12) }})
+              </mat-panel-title>
+              <mat-panel-description> </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div
+              *ngFor="let calendarioHorarios of dia12?.calendarioHorarios"
+              class="h-full"
+            >
+              <app-compromisso-card
+                [calendarioHorario]="calendarioHorarios"
+              ></app-compromisso-card>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+      <div>
+        <mat-accordion>
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Dia 13 ({{ getLength(dia13) }})
+              </mat-panel-title>
+              <mat-panel-description> </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div
+              *ngFor="let calendarioHorarios of dia13?.calendarioHorarios"
+              class="h-full"
+            >
+              <app-compromisso-card
+                [calendarioHorario]="calendarioHorarios"
+              ></app-compromisso-card>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+      <div>
+        <mat-accordion>
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Dia 14 ({{ getLength(dia14) }})
+              </mat-panel-title>
+              <mat-panel-description> </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div
+              *ngFor="let calendarioHorarios of dia14?.calendarioHorarios"
+              class="h-full"
+            >
+              <app-compromisso-card
+                [calendarioHorario]="calendarioHorarios"
+              ></app-compromisso-card>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+      <div>
+        <mat-accordion>
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Dia 15 ({{ getLength(dia15) }})
+              </mat-panel-title>
+              <mat-panel-description> </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div
+              *ngFor="let calendarioHorarios of dia15?.calendarioHorarios"
+              class="h-full"
+            >
+              <app-compromisso-card
+                [calendarioHorario]="calendarioHorarios"
+              ></app-compromisso-card>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+      <div>
+        <mat-accordion>
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Dia 16 ({{ getLength(dia16) }})
+              </mat-panel-title>
+              <mat-panel-description> </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div
+              *ngFor="let calendarioHorarios of dia16?.calendarioHorarios"
+              class="h-full"
+            >
+              <app-compromisso-card
+                [calendarioHorario]="calendarioHorarios"
+              ></app-compromisso-card>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+      <div>
+        <mat-accordion>
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Dia 17 ({{ getLength(dia17) }})
+              </mat-panel-title>
+              <mat-panel-description> </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div
+              *ngFor="let calendarioHorarios of dia17?.calendarioHorarios"
+              class="h-full"
+            >
+              <app-compromisso-card
+                [calendarioHorario]="calendarioHorarios"
+              ></app-compromisso-card>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+      <div>
+        <mat-accordion>
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Dia 18 ({{ getLength(dia18) }})
+              </mat-panel-title>
+              <mat-panel-description> </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div
+              *ngFor="let calendarioHorarios of dia18?.calendarioHorarios"
+              class="h-full"
+            >
+              <app-compromisso-card
+                [calendarioHorario]="calendarioHorarios"
+              ></app-compromisso-card>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+      <div>
+        <mat-accordion>
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Dia 19 ({{ getLength(dia19) }})
+              </mat-panel-title>
+              <mat-panel-description> </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div
+              *ngFor="let calendarioHorarios of dia19?.calendarioHorarios"
+              class="h-full"
+            >
+              <app-compromisso-card
+                [calendarioHorario]="calendarioHorarios"
+              ></app-compromisso-card>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+      <div>
+        <mat-accordion>
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Dia 20 ({{ getLength(dia20) }})
+              </mat-panel-title>
+              <mat-panel-description> </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div
+              *ngFor="let calendarioHorarios of dia20?.calendarioHorarios"
+              class="h-full"
+            >
+              <app-compromisso-card
+                [calendarioHorario]="calendarioHorarios"
+              ></app-compromisso-card>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+      <div>
+        <mat-accordion>
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Dia 21 ({{ getLength(dia21) }})
+              </mat-panel-title>
+              <mat-panel-description> </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div
+              *ngFor="let calendarioHorarios of dia21?.calendarioHorarios"
+              class="h-full"
+            >
+              <app-compromisso-card
+                [calendarioHorario]="calendarioHorarios"
+              ></app-compromisso-card>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+      <div>
+        <mat-accordion>
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Dia 22 ({{ getLength(dia22) }})
+              </mat-panel-title>
+              <mat-panel-description> </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div
+              *ngFor="let calendarioHorarios of dia22?.calendarioHorarios"
+              class="h-full"
+            >
+              <app-compromisso-card
+                [calendarioHorario]="calendarioHorarios"
+              ></app-compromisso-card>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+      <div>
+        <mat-accordion>
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Dia 23 ({{ getLength(dia23) }})
+              </mat-panel-title>
+              <mat-panel-description> </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div
+              *ngFor="let calendarioHorarios of dia23?.calendarioHorarios"
+              class="h-full"
+            >
+              <app-compromisso-card
+                [calendarioHorario]="calendarioHorarios"
+              ></app-compromisso-card>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+      <div>
+        <mat-accordion>
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Dia 24 ({{ getLength(dia24) }})
+              </mat-panel-title>
+              <mat-panel-description> </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div
+              *ngFor="let calendarioHorarios of dia24?.calendarioHorarios"
+              class="h-full"
+            >
+              <app-compromisso-card
+                [calendarioHorario]="calendarioHorarios"
+              ></app-compromisso-card>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+      <div>
+        <mat-accordion>
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Dia 25 ({{ getLength(dia25) }})
+              </mat-panel-title>
+              <mat-panel-description> </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div
+              *ngFor="let calendarioHorarios of dia25?.calendarioHorarios"
+              class="h-full"
+            >
+              <app-compromisso-card
+                [calendarioHorario]="calendarioHorarios"
+              ></app-compromisso-card>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+      <div>
+        <mat-accordion>
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Dia 26 ({{ getLength(dia26) }})
+              </mat-panel-title>
+              <mat-panel-description> </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div
+              *ngFor="let calendarioHorarios of dia25?.calendarioHorarios"
+              class="h-full"
+            >
+              <app-compromisso-card
+                [calendarioHorario]="calendarioHorarios"
+              ></app-compromisso-card>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+      <div>
+        <mat-accordion>
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Dia 27 ({{ getLength(dia27) }})
+              </mat-panel-title>
+              <mat-panel-description> </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div
+              *ngFor="let calendarioHorarios of dia27?.calendarioHorarios"
+              class="h-full"
+            >
+              <app-compromisso-card
+                [calendarioHorario]="calendarioHorarios"
+              ></app-compromisso-card>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+      <div>
+        <mat-accordion>
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Dia 28 ({{ getLength(dia28) }})
+              </mat-panel-title>
+              <mat-panel-description> </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div
+              *ngFor="let calendarioHorarios of dia28?.calendarioHorarios"
+              class="h-full"
+            >
+              <app-compromisso-card
+                [calendarioHorario]="calendarioHorarios"
+              ></app-compromisso-card>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+      <div>
+        <mat-accordion>
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Dia 29 ({{ getLength(dia29) }})
+              </mat-panel-title>
+              <mat-panel-description> </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div
+              *ngFor="let calendarioHorarios of dia29?.calendarioHorarios"
+              class="h-full"
+            >
+              <app-compromisso-card
+                [calendarioHorario]="calendarioHorarios"
+              ></app-compromisso-card>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+      <div>
+        <mat-accordion>
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Dia 30 ({{ getLength(dia30) }})
+              </mat-panel-title>
+              <mat-panel-description> </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div
+              *ngFor="let calendarioHorarios of dia30?.calendarioHorarios"
+              class="h-full"
+            >
+              <app-compromisso-card
+                [calendarioHorario]="calendarioHorarios"
+              ></app-compromisso-card>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+      <div *ngIf="dia31 != null">
+        <mat-accordion>
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Dia 31 ({{ getLength(dia31) }})
+              </mat-panel-title>
+              <mat-panel-description> </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div
+              *ngFor="let calendarioHorarios of dia31?.calendarioHorarios"
+              class="h-full"
+            >
+              <app-compromisso-card
+                [calendarioHorario]="calendarioHorarios"
+              ></app-compromisso-card>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </div>
+  </div>
+</div>

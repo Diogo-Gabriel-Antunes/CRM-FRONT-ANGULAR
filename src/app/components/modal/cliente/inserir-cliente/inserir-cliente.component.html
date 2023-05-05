@@ -1,0 +1,146 @@
+<div>
+  <div>
+    <h1 class="text-center capitalize">Inserir Cliente</h1>
+  </div>
+  <mat-divider></mat-divider>
+  <div>
+    <div class="grid grid-cols-2 gap-5">
+      <div
+        class="grid grid-cols-2 gap-5 border border-gray-400 rounded p-5 mt-5"
+      >
+        <div class="col-span-2">
+          <h3 class="text-center">Dados Pessoais</h3>
+          <mat-divider></mat-divider>
+        </div>
+        <div>
+          <div>
+            <app-label label="Nome"></app-label>
+            <app-input
+              [value]="nome"
+              (valueChange)="setNome($event)"
+            ></app-input>
+          </div>
+          <div class="my-5">
+            <app-label label="Telefone 1"></app-label>
+            <app-input
+              [value]="telefone1"
+              (valueChange)="setTelefone1($event)"
+            ></app-input>
+          </div>
+          <div>
+            <app-label label="E-mail"></app-label>
+            <app-input
+              [value]="email"
+              (valueChange)="setEmail($event)"
+            ></app-input>
+          </div>
+          <div class="my-5">
+            <app-label label="Logradouro"></app-label>
+            <app-input
+              [value]="logradouro"
+              (valueChange)="setLogradouro($event)"
+            ></app-input>
+          </div>
+
+          <div class="my-5">
+            <app-label label="Pais"></app-label>
+            <app-input
+              [value]="pais"
+              (valueChange)="setPais($event)"
+            ></app-input>
+          </div>
+        </div>
+        <div>
+          <div>
+            <app-label label="Sobrenome"></app-label>
+            <app-input
+              [value]="sobrenome"
+              (valueChange)="setSobrenome($event)"
+            ></app-input>
+          </div>
+          <div class="my-5">
+            <app-label label="Telefone 2"></app-label>
+            <app-input
+              [value]="telefone2"
+              (valueChange)="setTelefone2($event)"
+            ></app-input>
+          </div>
+          <div class="my-5">
+            <app-label label="Cep"></app-label>
+            <app-input [value]="cep" (valueChange)="setCep($event)"></app-input>
+          </div>
+          <div class="my-5">
+            <app-label label="Estado"></app-label>
+            <app-select
+              [options]="estadoSelect"
+              [value]="estado"
+              (valueChange)="setEstado($event)"
+            ></app-select>
+          </div>
+          <div class="my-5">
+            <app-label label="Cidade"></app-label>
+            <app-input
+              [value]="cidade"
+              (valueChange)="setCidade($event)"
+            ></app-input>
+          </div>
+        </div>
+      </div>
+      <div
+        class="grid grid-cols-2 gap-5 border border-gray-400 rounded p-5 mt-5 min-h-inserirCliente h-56 max-h-full"
+      >
+        <div class="col-span-2">
+          <h3 class="text-center">Captação</h3>
+          <mat-divider></mat-divider>
+        </div>
+        <div>
+          <div>
+            <app-label label="Tipo Captação"></app-label>
+            <app-select
+              [options]="captacaoOptions"
+              [value]="captacao"
+              (valueChange)="setCaptacao($event)"
+            ></app-select>
+          </div>
+        </div>
+        <div>
+          <div *ngIf="captacao === 'FUNIL'">
+            <app-label label="Funil"></app-label>
+            <app-select
+              [options]="funilOptions"
+              [value]="funilSelected"
+              (valueChange)="setFunilSelected($event)"
+            ></app-select>
+          </div>
+          <div *ngIf="captacao === 'CAMPANHA'">
+            <app-label label="Campanha"></app-label>
+            <app-select
+              [options]="campanhaOptions"
+              [value]="campanhaSelected"
+              (valueChange)="setCampanhaSelected($event)"
+            ></app-select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <mat-dialog-actions align="end">
+      <button
+        mat-button
+        mat-dialog-close
+        class="border border-black rounded px-4 py-2 mr-5"
+      >
+        Fechar
+      </button>
+      <button
+        mat-button
+        [mat-dialog-close]="true"
+        cdkFocusInitial
+        class="bg-green-400 rounded px-4 py-2 text-white"
+        (click)="createCliente()"
+      >
+        Salvar
+      </button>
+    </mat-dialog-actions>
+  </div>
+</div>

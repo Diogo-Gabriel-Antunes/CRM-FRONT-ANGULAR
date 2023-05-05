@@ -1,0 +1,18 @@
+<div
+  *ngIf="
+    calendarioHorario.compromisso.oportunidades ||
+    calendarioHorario.compromisso.tarefas
+  "
+>
+  <div>
+    <mat-divider></mat-divider>
+  </div>
+  <div *ngIf="calendarioHorario.compromisso.oportunidades">
+    <app-oportunidade
+      [calendarioHorario]="calendarioHorario"
+    ></app-oportunidade>
+  </div>
+  <div *ngIf="calendarioHorario.compromisso.tarefas">
+    <app-tarefa [calendarioHorario]="calendarioHorario"></app-tarefa>
+  </div>
+</div>
