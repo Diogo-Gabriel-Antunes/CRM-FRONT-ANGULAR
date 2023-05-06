@@ -89,6 +89,7 @@ import { LeadsModule } from './pages/leads/leads.module';
     MatTableModule,
     CdkTableModule,
     TableGridModule,
+    LeadsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },

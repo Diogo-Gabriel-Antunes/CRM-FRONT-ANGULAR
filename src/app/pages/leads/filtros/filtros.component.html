@@ -1,2 +1,32 @@
-<div>
+<div class="pl-20 pt-3 bg-blue-100 pb-5">
+  <div class="flex w-full gap-10">
+    <div class="w-32">
+      <app-label label="Funil"></app-label>
+      <app-select [options]="funilOptions"></app-select>
+    </div>
+    <div class="w-32">
+      <app-label label="Etapa do funil"></app-label>
+      <app-select [options]="etapasOptions"></app-select>
+    </div>
+    <div class="w-32">
+      <app-label label="Responsavel"></app-label>
+      <app-select></app-select>
+    </div>
+    <div class="w-32">
+      <app-label label="Status"></app-label>
+      <app-select></app-select>
+    </div>
+    <div>
+      <button
+        [routerLink]="['/leads/tabela']"
+        routerLinkActive="router-link-active"
+        class="px-4 bg-yellow-300 rounded mt-4 flex items-center gap-2"
+      >
+        <p class="paragrafo-tabela">Tabela</p>
+        <mat-icon class="text-sm pt-0.5" routerLinkActive="router-link-active">
+          table
+        </mat-icon>
+      </button>
+    </div>
+  </div>
 </div>

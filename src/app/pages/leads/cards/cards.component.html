@@ -1,0 +1,42 @@
+<div *ngIf="itens">
+  <div>
+    <div
+      class="flex flex-col gap-2"
+      cdkDropList
+      [cdkDropListData]="itens.leads"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div class="bg-blue-100 min-h-lead rounded-b pt-5 px-3">
+        <div class="bg-blue-500">
+          <div *ngFor="let lead of itens.leads">
+            <div [cdkDragData]="lead.lead" cdkDrag>
+              <div>
+                <div>
+                  <div class="border border-black rounded-t text-white px-3">
+                    {{ lead.lead.cliente.nome }}
+                  </div>
+                </div>
+                <div class="border border-black rounded-b bg-white">
+                  <div class="flex flex-col gap-5 p-3">
+                    <div>
+                      {{ lead.lead.descricao }}
+                    </div>
+                    <div>
+                      {{ formataData(lead.lead.data) }}
+                    </div>
+                    <div>
+                      <p matPrefix>
+                        R$
+                        {{ lead.lead.valor | mask : "separator.2" }}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

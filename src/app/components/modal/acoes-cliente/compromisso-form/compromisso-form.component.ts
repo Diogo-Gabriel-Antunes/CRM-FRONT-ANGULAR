@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormataData } from 'src/app/Commons/utils/DataUtils';
+import { DataUtilService } from 'src/app/Commons/utils/data-util.service';
 import { IOptions } from 'src/app/Interfaces/IOptions';
 import { ClienteService } from 'src/app/pages/cliente/cliente.service';
 
@@ -19,7 +19,10 @@ export class CompromissoFormComponent {
   diaSelected!: string;
   @Input() tipoIntegracao!: string;
   @Output() emitindoCompromisso = new EventEmitter<any>();
-  constructor(private clienteService: ClienteService) {}
+  constructor(
+    private clienteService: ClienteService,
+    private dataUtils: DataUtilService
+  ) {}
   setFimDoCompromisso(str: string) {
     this.fimDoCompromisso = str;
     this.emitCompromisso();
@@ -52,10 +55,10 @@ export class CompromissoFormComponent {
   emitCompromisso() {
     let compromisso = {
       inicioCompromisso: this.inicioDoCompromisso
-        ? FormataData(this.inicioDoCompromisso)
+        ? this.dataUtils.FormataData(this.inicioDoCompromisso)
         : null,
       fimCompromisso: this.fimDoCompromisso
-        ? FormataData(this.fimDoCompromisso)
+        ? this.dataUtils.FormataData(this.fimDoCompromisso)
         : null,
       mes: this.mesSelected,
       horario: this.horarioSelected,

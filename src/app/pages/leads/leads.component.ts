@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LeadsService } from './leads.service';
 import { IEtapaDoFunil } from 'src/app/Interfaces/IEtapaDoFunil';
+import { ItensDragDrop } from './cards/cards.component';
+import { IDragDrop } from 'src/app/Interfaces/IDragDrop';
 
 @Component({
   selector: 'app-leads',
@@ -10,6 +12,7 @@ import { IEtapaDoFunil } from 'src/app/Interfaces/IEtapaDoFunil';
 export class LeadsComponent implements OnInit {
   etapas!: IEtapaDoFunil[];
   funilUuid!: string;
+  leads!: IDragDrop[];
 
   constructor(private leadsService: LeadsService) {}
 
@@ -19,5 +22,18 @@ export class LeadsComponent implements OnInit {
         this.etapas = resposta;
       },
     });
+
+    this.leadsService.getDragDrop(this.funilUuid).subscribe({
+      next: (resposta) => {
+        this.leads = resposta;
+      },
+    });
+  }
+
+  getLead(etapa: IEtapaDoFunil) {
+    const leads = this.leads?.filter((lead) => {
+      return lead.etapaUuid == etapa.uuid;
+    })[0];
+    return leads;
   }
 }
