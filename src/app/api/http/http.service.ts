@@ -26,11 +26,12 @@ export class HttpService {
     });
   }
 
-  public put<T>(url: string, data: any, path: string) {
+  public put<T>(url: string, data: any, path: string, params?: HttpParams) {
     return this.http.put<T>(this.baseUrl + url, data, {
       headers: {
         path: path,
       },
+      params,
     });
   }
 

@@ -26,6 +26,7 @@ import { InserirClienteComponent } from 'src/app/components/modal/cliente/inseri
 import { MatDividerModule } from '@angular/material/divider';
 import { ClienteService } from './cliente.service';
 import { EditarClienteComponent } from 'src/app/components/modal/cliente/editar-cliente/editar-cliente.component';
+import { InputValorCurrencyModule } from 'src/app/components/form/input-valor-currency/input-valor-currency.module';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { EditarClienteComponent } from 'src/app/components/modal/cliente/editar-
     PropostaFormModalComponent,
     TarefaFormModalComponent,
     ClientecardComponent,
-    EditarClienteComponent
+    EditarClienteComponent,
   ],
   imports: [
     CommonModule,
@@ -55,6 +56,7 @@ import { EditarClienteComponent } from 'src/app/components/modal/cliente/editar-
     NgxMaskPipe,
     MatDividerModule,
     CompromissoFormModule,
+    InputValorCurrencyModule,
   ],
   providers: [
     provideNgxMask(),

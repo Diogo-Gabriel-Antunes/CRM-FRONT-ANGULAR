@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LeadsComponent } from './leads.component';
 import { CabecalhosComponent } from './cabecalhos/cabecalhos.component';
@@ -14,6 +14,12 @@ import { CardsComponent } from './cards/cards.component';
 import { DataUtilService } from 'src/app/Commons/utils/data-util.service';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { DialogCreateLeadsTimelineComponent } from './dialog-create-leads-timeline/dialog-create-leads-timeline.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDivider, MatDividerModule } from '@angular/material/divider';
+import { InputModule } from 'src/app/components/form/input/input.module';
+import { InputValorCurrencyModule } from 'src/app/components/form/input-valor-currency/input-valor-currency.module';
+import { ModalClienteModule } from 'src/app/components/modal/modal-cliente/modal-cliente.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +27,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     CabecalhosComponent,
     FiltrosComponent,
     CardsComponent,
+    DialogCreateLeadsTimelineComponent,
   ],
   imports: [
     CommonModule,
@@ -34,6 +41,11 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     NgxMaskDirective,
     NgxMaskPipe,
     DragDropModule,
+    MatDialogModule,
+    MatDividerModule,
+    InputModule,
+    InputValorCurrencyModule,
+    ModalClienteModule,
   ],
   exports: [LeadsComponent],
   providers: [DataUtilService, provideNgxMask()],

@@ -1,0 +1,39 @@
+<h2 mat-dialog-title class="text-center">Criar Lead</h2>
+<mat-divider> </mat-divider>
+<mat-dialog-content class="mat-typography">
+  <div class="grid grid-cols-2 gap-4">
+    <div>
+      <div>
+        <app-label label="Descrição"></app-label>
+        <app-input></app-input>
+      </div>
+      <div>
+        <app-label label="Data"></app-label>
+        <app-input-date></app-input-date>
+      </div>
+      <div>
+        <app-modal-cliente></app-modal-cliente>
+      </div>
+    </div>
+    <div>
+      <div>
+        <app-label label="Funil"></app-label>
+        <app-select></app-select>
+      </div>
+      <div>
+        <app-label label="Etapa do funil"></app-label>
+        <app-select></app-select>
+      </div>
+      <div>
+        <app-label label="Valor"></app-label>
+        <app-input-valor-currency></app-input-valor-currency>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>
+    Cria lead
+  </button>
+</mat-dialog-actions>

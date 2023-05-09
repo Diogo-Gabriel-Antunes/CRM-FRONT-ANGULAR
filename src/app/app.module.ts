@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatInputModule } from '@angular/material/input';
 import { AppRoutingModule } from './app-routing.module';
@@ -50,6 +50,8 @@ import { FunilGeralModule } from './pages/funil/funil-geral/funil-geral.module';
 import { CampanhaGeralModule } from './pages/campanha/campanha-geral/campanha-geral.module';
 import { InserirClienteModule } from './components/modal/cliente/inserir-cliente/inserir-cliente.module';
 import { LeadsModule } from './pages/leads/leads.module';
+import { InputValorCurrencyComponent } from './components/form/input-valor-currency/input-valor-currency.component';
+import { InputValorCurrencyModule } from './components/form/input-valor-currency/input-valor-currency.module';
 
 @NgModule({
   declarations: [
@@ -89,7 +91,8 @@ import { LeadsModule } from './pages/leads/leads.module';
     MatTableModule,
     CdkTableModule,
     TableGridModule,
-    LeadsModule
+    LeadsModule,
+    InputValorCurrencyModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },

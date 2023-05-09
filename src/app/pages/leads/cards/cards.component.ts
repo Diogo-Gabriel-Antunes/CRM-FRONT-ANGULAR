@@ -7,6 +7,8 @@ import {
   moveItemInArray,
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
+import { LeadsService } from '../leads.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-cards',
   templateUrl: './cards.component.html',
@@ -14,18 +16,27 @@ import {
 })
 export class CardsComponent {
   @Input() itens!: IDragDrop;
-  todo = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
-
-  done = ['Get up', 'Brush teeth', 'Take a shower', 'Check e-mail', 'Walk dog'];
 
   @Input() list!: IDragDrop[];
-  constructor(private dataUtil: DataUtilService) {}
+  constructor(
+    private dataUtil: DataUtilService,
+    private leadService: LeadsService,
+    private snackBar: MatSnackBar
+  ) {}
 
   formataData(data: string) {
     return this.dataUtil.dataAtualFormatada(data);
   }
-  drop(event: CdkDragDrop<any>) {
-    console.log(event);
+  drop(event: CdkDragDrop<ItensDragDrop[]>) {
+    this.leadService
+      .updateLeadDragDrop(event.item.data.uuid, this.itens.etapaUuid)
+      .subscribe({
+        next: () => {
+          this.snackBar.open('Lead atualizado com sucesso', undefined, {
+            duration: 2000,
+          });
+        },
+      });
     if (event.previousContainer === event.container) {
       moveItemInArray(
         event.container.data,

@@ -1,15 +1,15 @@
 <div *ngIf="itens">
   <div>
     <div
-      class="flex flex-col gap-2"
+      class="flex flex-col gap-2 bg-blue-100 min-h-lead"
       cdkDropList
       [cdkDropListData]="itens.leads"
       (cdkDropListDropped)="drop($event)"
     >
-      <div class="bg-blue-100 min-h-lead rounded-b pt-5 px-3">
+      <div class="rounded-b pt-5 px-3">
         <div class="bg-blue-500">
           <div *ngFor="let lead of itens.leads">
-            <div [cdkDragData]="lead.lead" cdkDrag>
+            <div [cdkDragData]="lead.lead" cdkDrag cdkDragHandle>
               <div>
                 <div>
                   <div class="border border-black rounded-t text-white px-3">
@@ -26,8 +26,9 @@
                     </div>
                     <div>
                       <p matPrefix>
-                        R$
-                        {{ lead.lead.valor | mask : "separator.2" }}
+                        {{
+                          lead.lead.valor | currency : "BRL" : true : "1.2-2"
+                        }}
                       </p>
                     </div>
                   </div>

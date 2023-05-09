@@ -40,6 +40,17 @@ export class LeadsService {
     );
   }
 
+  updateLeadDragDrop(leadUuid: string, novaEtapaUuid: string) {
+    let params = new HttpParams().set('novaEtapaUuid', novaEtapaUuid);
+
+    return this.httpService.put(
+      '/lead/drag-drop/' + leadUuid,
+      null,
+      '/lead',
+      params
+    );
+  }
+
   getEtapaFunil(funilUuid: string) {
     let params = null;
     if (funilUuid) {
