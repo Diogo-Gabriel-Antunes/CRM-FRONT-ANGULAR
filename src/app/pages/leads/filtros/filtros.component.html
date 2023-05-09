@@ -11,6 +11,10 @@
           <app-select [options]="etapasOptions"></app-select>
         </div>
         <div class="w-32">
+          <app-label label="Campanha"></app-label>
+          <app-select></app-select>
+        </div>
+        <div class="w-32">
           <app-label label="Responsavel"></app-label>
           <app-select></app-select>
         </div>
@@ -24,7 +28,7 @@
           <button
             [routerLink]="['/leads/tabela']"
             routerLinkActive="router-link-active"
-            class="px-4 bg-yellow-300 rounded mt-4 flex items-center gap-2"
+            class="px-4 bg-gray-400 rounded mt-4 flex items-center gap-2 text-white"
           >
             <p class="paragrafo-tabela">Tabela</p>
             <mat-icon
