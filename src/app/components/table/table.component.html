@@ -14,7 +14,11 @@
         <div (click)="select(element.uuid)" *ngIf="!options.type">
           {{ element[options.objectName] }}
         </div>
-        <div (click)="select(element.uuid)" *ngIf="options.type === 'date'">
+        <div
+          (click)="select(element.uuid)"
+          *ngIf="options.type === 'date'"
+          [ngClass]="ngClassBg(element)"
+        >
           {{ formataDataPadraoBr(element[options.objectName]) }}
         </div>
       </td>

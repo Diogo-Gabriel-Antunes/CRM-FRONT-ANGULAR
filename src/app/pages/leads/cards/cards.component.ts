@@ -9,6 +9,8 @@ import {
 } from '@angular/cdk/drag-drop';
 import { LeadsService } from '../leads.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { DialogLeadComponent } from './dialog-lead/dialog-lead.component';
+import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-cards',
   templateUrl: './cards.component.html',
@@ -21,7 +23,8 @@ export class CardsComponent {
   constructor(
     private dataUtil: DataUtilService,
     private leadService: LeadsService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private dialog: MatDialog
   ) {}
 
   formataData(data: string) {
@@ -37,6 +40,9 @@ export class CardsComponent {
           });
         },
       });
+    if (event.distance.x == 0 && event.distance.y == 0) {
+      console.log('oi');
+    }
     if (event.previousContainer === event.container) {
       moveItemInArray(
         event.container.data,
@@ -51,6 +57,19 @@ export class CardsComponent {
         event.currentIndex
       );
     }
+  }
+  openDialog(leadUuid: string) {
+    const dialogRef = this.dialog.open(DialogLeadComponent, {
+      width: '500px',
+      height: '800px',
+      data: {
+        leadUuid: leadUuid,
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 }
 

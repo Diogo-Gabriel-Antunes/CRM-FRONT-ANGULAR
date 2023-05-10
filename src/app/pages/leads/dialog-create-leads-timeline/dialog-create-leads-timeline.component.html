@@ -5,28 +5,46 @@
     <div>
       <div>
         <app-label label="Descrição"></app-label>
-        <app-input></app-input>
+        <app-input
+          [value]="descricao"
+          (valueChange)="setDescricao($event)"
+        ></app-input>
       </div>
       <div>
         <app-label label="Data"></app-label>
-        <app-input-date></app-input-date>
+        <app-input-date [value]="data" (valueChange)="setData($event)">
+        </app-input-date>
       </div>
       <div>
-        <app-modal-cliente></app-modal-cliente>
+        <app-modal-cliente
+          (valueChange)="seCliente($event)"
+        ></app-modal-cliente>
       </div>
     </div>
     <div>
       <div>
         <app-label label="Funil"></app-label>
-        <app-select></app-select>
+        <app-select
+          [options]="funilOptions"
+          [value]="funilSelected"
+          (valueChange)="setFunilSelected($event)"
+        ></app-select>
       </div>
       <div>
         <app-label label="Etapa do funil"></app-label>
-        <app-select></app-select>
+        <app-select
+          [disabled]="funilSelected === undefined"
+          [options]="etapaFunilOptions"
+          [value]="etapaFunilSelected"
+          (valueChange)="setEtapaFunil($event)"
+        ></app-select>
       </div>
       <div>
         <app-label label="Valor"></app-label>
-        <app-input-valor-currency></app-input-valor-currency>
+        <app-input-valor-currency
+          [value]="valor"
+          (valueChange)="setValor($event)"
+        ></app-input-valor-currency>
       </div>
     </div>
   </div>
@@ -44,6 +62,7 @@
     [mat-dialog-close]="true"
     cdkFocusInitial
     class="bg-green-400 px-4 py-2 rounded text-white mx-5"
+    (click)="createLead()"
   >
     Cria lead
   </button>

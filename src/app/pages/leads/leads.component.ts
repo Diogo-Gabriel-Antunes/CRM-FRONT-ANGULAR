@@ -3,6 +3,7 @@ import { LeadsService } from './leads.service';
 import { IEtapaDoFunil } from 'src/app/Interfaces/IEtapaDoFunil';
 import { ItensDragDrop } from './cards/cards.component';
 import { IDragDrop } from 'src/app/Interfaces/IDragDrop';
+import { ThemePalette } from '@angular/material/core';
 
 @Component({
   selector: 'app-leads',
@@ -13,7 +14,8 @@ export class LeadsComponent implements OnInit {
   etapas!: IEtapaDoFunil[];
   funilUuid!: string;
   leads!: IDragDrop[];
-
+  color: ThemePalette = 'accent';
+  checked: any = true;
   constructor(private leadsService: LeadsService) {}
 
   ngOnInit(): void {
@@ -35,5 +37,8 @@ export class LeadsComponent implements OnInit {
       return lead.etapaUuid == etapa.uuid;
     })[0];
     return leads;
+  }
+  setChecked(boo: any) {
+    this.checked = boo;
   }
 }

@@ -20,7 +20,10 @@ import { MatDivider, MatDividerModule } from '@angular/material/divider';
 import { InputModule } from 'src/app/components/form/input/input.module';
 import { InputValorCurrencyModule } from 'src/app/components/form/input-valor-currency/input-valor-currency.module';
 import { ModalClienteModule } from 'src/app/components/modal/modal-cliente/modal-cliente.module';
-
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { FormsModule } from '@angular/forms';
+import { DialogLeadComponent } from './cards/dialog-lead/dialog-lead.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 @NgModule({
   declarations: [
     LeadsComponent,
@@ -28,6 +31,7 @@ import { ModalClienteModule } from 'src/app/components/modal/modal-cliente/modal
     FiltrosComponent,
     CardsComponent,
     DialogCreateLeadsTimelineComponent,
+    DialogLeadComponent,
   ],
   imports: [
     CommonModule,
@@ -46,6 +50,9 @@ import { ModalClienteModule } from 'src/app/components/modal/modal-cliente/modal
     InputModule,
     InputValorCurrencyModule,
     ModalClienteModule,
+    MatSlideToggleModule,
+    FormsModule,
+    MatCheckboxModule,
   ],
   exports: [LeadsComponent],
   providers: [DataUtilService, provideNgxMask()],

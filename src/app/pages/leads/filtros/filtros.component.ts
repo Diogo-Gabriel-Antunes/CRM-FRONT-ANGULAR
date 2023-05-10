@@ -4,6 +4,7 @@ import { HttpService } from 'src/app/api/http/http.service';
 import { LeadsService } from '../leads.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogCreateLeadsTimelineComponent } from '../dialog-create-leads-timeline/dialog-create-leads-timeline.component';
+import { ThemePalette } from '@angular/material/core';
 
 @Component({
   selector: 'app-filtros',
@@ -14,6 +15,7 @@ export class FiltrosComponent implements OnInit {
   funilOptions!: IOptions[];
   etapasOptions!: IOptions[];
   funilUuid!: string;
+
   constructor(private leadsService: LeadsService, public dialog: MatDialog) {}
 
   ngOnInit(): void {

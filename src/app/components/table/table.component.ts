@@ -25,6 +25,8 @@ export class TableComponent implements OnInit {
 
   ngClassBg(element: any) {
     if (element.uuid === this.selected) {
+      console.log(element);
+
       return 'bg-blue-200';
     } else {
       return 'bg-white';

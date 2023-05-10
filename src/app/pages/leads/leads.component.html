@@ -1,6 +1,7 @@
 <div>
   <div class="w-full bg-white"><app-filtros></app-filtros></div>
   <div>
+    <div></div>
     <div
       *ngIf="etapas"
       class="flex items-start gap-5 overflow-auto pl-20 mt-10 h-screen"
@@ -9,7 +10,9 @@
       <div *ngFor="let etapa of etapas" class="snap-center">
         <app-cabecalhos [etapaDoFunil]="etapa">
           <div>
-            <app-cards [itens]="getLead(etapa)" [list]="leads"></app-cards>
+            <div *ngIf="checked">
+              <app-cards [itens]="getLead(etapa)" [list]="leads"></app-cards>
+            </div>
           </div>
         </app-cabecalhos>
       </div>

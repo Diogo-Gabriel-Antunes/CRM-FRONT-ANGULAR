@@ -96,7 +96,7 @@ import { InputValorCurrencyModule } from './components/form/input-valor-currency
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
-    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false } },
+    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: true } },
     {
       provide: MAT_BOTTOM_SHEET_DEFAULT_OPTIONS,
       useValue: {},

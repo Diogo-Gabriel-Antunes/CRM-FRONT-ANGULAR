@@ -2,6 +2,7 @@ import { HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IDragDrop } from 'src/app/Interfaces/IDragDrop';
 import { IEtapaDoFunil } from 'src/app/Interfaces/IEtapaDoFunil';
+import { ILead } from 'src/app/Interfaces/ILead';
 import { IOptions } from 'src/app/Interfaces/IOptions';
 import { HttpService } from 'src/app/api/http/http.service';
 
@@ -51,6 +52,10 @@ export class LeadsService {
     );
   }
 
+  createLead(dto: any) {
+    return this.httpService.post<ILead>('/lead', dto, '/lead');
+  }
+
   getEtapaFunil(funilUuid: string) {
     let params = null;
     if (funilUuid) {
@@ -62,5 +67,9 @@ export class LeadsService {
       '/lead',
       params!
     );
+  }
+
+  getAnotacoes(leadUuid: string) {
+    return this.httpService.get<ILead>('/lead/anotacoes/' + leadUuid, '/lead');
   }
 }
